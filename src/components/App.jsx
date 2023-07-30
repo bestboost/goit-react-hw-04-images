@@ -9,8 +9,6 @@ import Loader from './Loader/Loader';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
-
-
 const App = () => {
    const [apiImages, setApiImages] = useState(null);
    const [loading, setLoading] = useState(false);
@@ -19,28 +17,31 @@ const App = () => {
    const [error, setError] = useState(null);
    const [selectedImage, setSelectedImage] = useState(null);
    const [page, setPage] = useState(1);
-
+   
    const url = `https://pixabay.com/api/?q=${inputValue}&page=${page}&key=29692752-5f9a27c26e6deec7970509d3f&image_type=photo&orientation=horizontal&per_page=15`;
 
     useEffect(() => {
+      
+     if(inputValue !== ''){
         setLoading(true);
         setApiImages(null);
       fetch(url)
-       .then(response => {
-          if(response.ok) {
-            return response.json();
-          }; 
-    
-          return Promise.reject(
-            new Error(`Upsss, no image ${inputValue}!`),
-          );        
-       })
+      .then(response => {
+         if(response.ok) {
+           return response.json();
+         }; 
    
-       .then(apiImages => 
-         setApiImages(apiImages.hits)) 
-       .catch(error => setError(error)) 
-       .finally(() => setLoading(false));
-       },[inputValue, url])
+         return Promise.reject(
+           new Error(`Upsss, no image ${inputValue}!`),
+         );        
+      })
+  
+      .then(apiImages => 
+        setApiImages(apiImages.hits)) 
+      .catch(error => setError(error)) 
+      .finally(() => setLoading(false));
+     }
+       },[inputValue, url, page])
     
   const formSubmit =  inputValue => {
     setInputValue(inputValue);
