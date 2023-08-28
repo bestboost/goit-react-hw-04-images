@@ -20,18 +20,19 @@ const App = () => {
   const [showBtn, setShowBtn] = useState(false);
 
   useEffect(() => {
-    if (inputValue !== '') {
-      setLoading(true);
-
-      fetchImagesAPI
-        .fetchImages(inputValue, page)
-        .then(response => {
-          setApiImages(response.hits);
-          setShowBtn(page < Math.ceil(response.totalHits / 12));
-        })
-        .catch(error => setError(error))
-        .finally(() => setLoading(false));
+    if (!inputValue) {
+      return;
     }
+    setLoading(true);
+
+    fetchImagesAPI
+      .fetchImages(inputValue, page)
+      .then(response => {
+        setApiImages(response.hits);
+        setShowBtn(page < Math.ceil(response.totalHits / 12));
+      })
+      .catch(error => setError(error))
+      .finally(() => setLoading(false));
   }, [inputValue, page]);
 
   const formSubmit = inputValue => {
