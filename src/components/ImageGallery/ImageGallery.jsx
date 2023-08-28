@@ -2,16 +2,19 @@ import React from 'react';
 import { Gallery, GalleryImg, GalleryBar } from './ImageGallery.styled';
 import PropTypes from 'prop-types';
 
-const ImageGallery = ({ images, onSelect, onClick }) => {
+const ImageGallery = ({ images, onSelect, clickForShowModal }) => {
   return (
     <Gallery>
-      {/* {' '} */}
       {images.map(image => (
         <GalleryBar
           key={image.id}
           onClick={() => onSelect(image.largeImageURL)}
         >
-          <GalleryImg src={image.webformatURL} alt="Image" onClick={onClick} />
+          <GalleryImg
+            src={image.webformatURL}
+            alt="Image"
+            onClick={clickForShowModal}
+          />
         </GalleryBar>
       ))}
     </Gallery>

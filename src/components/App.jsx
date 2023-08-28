@@ -34,6 +34,12 @@ const App = () => {
       .catch(error => setError(error))
       .finally(() => setLoading(false));
   }, [inputValue, page]);
+  //  .then(response =>
+  //       this.setState(prevState => ({
+  //         apiImages: [...prevState.apiImages, ...response.hits],
+  //         showBtn: this.state.page < Math.ceil(response.totalHits / 12),
+  //       }))
+  //     )
 
   const formSubmit = inputValue => {
     setInputValue(inputValue);
@@ -64,7 +70,7 @@ const App = () => {
       {apiImages && (
         <ImageGallery
           images={apiImages}
-          onClick={toggleModal}
+          clickForShowModal={toggleModal}
           onSelect={selectImage}
         />
       )}
