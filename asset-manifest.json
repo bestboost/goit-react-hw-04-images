@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/.github.io/goit-react-hw-04-images/static/css/main.c18a8adb.css",
-    "main.js": "/.github.io/goit-react-hw-04-images/static/js/main.9b88a11d.js",
-    "index.html": "/.github.io/goit-react-hw-04-images/index.html",
-    "static/media/serch.svg": "/.github.io/goit-react-hw-04-images/static/media/serch.9adab2d465d4ad77b9aef570118ed26a.svg",
-    "main.c18a8adb.css.map": "/.github.io/goit-react-hw-04-images/static/css/main.c18a8adb.css.map",
-    "main.9b88a11d.js.map": "/.github.io/goit-react-hw-04-images/static/js/main.9b88a11d.js.map"
+    "main.css": "/goit-react-hw-04-images/static/css/main.c18a8adb.css",
+    "main.js": "/goit-react-hw-04-images/static/js/main.4a831a3e.js",
+    "index.html": "/goit-react-hw-04-images/index.html",
+    "static/media/serch.svg": "/goit-react-hw-04-images/static/media/serch.9adab2d465d4ad77b9aef570118ed26a.svg",
+    "main.c18a8adb.css.map": "/goit-react-hw-04-images/static/css/main.c18a8adb.css.map",
+    "main.4a831a3e.js.map": "/goit-react-hw-04-images/static/js/main.4a831a3e.js.map"
   },
   "entrypoints": [
     "static/css/main.c18a8adb.css",
-    "static/js/main.9b88a11d.js"
+    "static/js/main.4a831a3e.js"
   ]
 }
