@@ -2,15 +2,19 @@ import React from 'react';
 import { Gallery, GalleryImg, GalleryBar } from './ImageGallery.styled';
 import PropTypes from 'prop-types';
 
-const ImageGallery = ({ images, onSelect, onClick }) => {
+const ImageGallery = ({ images, selectImage, toggleModal }) => {
   return (
     <Gallery>
       {images.map(image => (
         <GalleryBar
           key={image.id}
-          onClick={() => onSelect(image.largeImageURL)}
+          onClick={() => selectImage(image.largeImageURL)}
         >
-          <GalleryImg src={image.webformatURL} alt="Image" onClick={onClick} />
+          <GalleryImg
+            src={image.webformatURL}
+            alt="Image"
+            onClick={toggleModal}
+          />
         </GalleryBar>
       ))}
     </Gallery>
@@ -18,7 +22,7 @@ const ImageGallery = ({ images, onSelect, onClick }) => {
 };
 
 ImageGallery.propTypes = {
-  onClick: PropTypes.func.isRequired,
+  toggleModal: PropTypes.func.isRequired,
   apiImages: PropTypes.arrayOf(
     PropTypes.shape({
       id: PropTypes.string.isRequired,

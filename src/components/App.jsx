@@ -72,8 +72,8 @@ const App = () => {
       {apiImages && (
         <ImageGallery
           images={apiImages}
-          onClick={toggleModal}
-          onSelect={selectImage}
+          toggleModal={toggleModal}
+          selectImage={selectImage}
         />
       )}
       {showBtn && <LoderButton onClick={loadMore} />}
