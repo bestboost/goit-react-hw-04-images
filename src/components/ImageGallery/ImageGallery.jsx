@@ -2,7 +2,7 @@ import React from 'react';
 import { Gallery, GalleryImg, GalleryBar } from './ImageGallery.styled';
 import PropTypes from 'prop-types';
 
-const ImageGallery = ({ images, onSelect, clickForShowModal }) => {
+const ImageGallery = ({ images, onSelect, onClick }) => {
   return (
     <Gallery>
       {images.map(image => (
@@ -10,11 +10,7 @@ const ImageGallery = ({ images, onSelect, clickForShowModal }) => {
           key={image.id}
           onClick={() => onSelect(image.largeImageURL)}
         >
-          <GalleryImg
-            src={image.webformatURL}
-            alt="Image"
-            onClick={clickForShowModal}
-          />
+          <GalleryImg src={image.webformatURL} alt="Image" onClick={onClick} />
         </GalleryBar>
       ))}
     </Gallery>

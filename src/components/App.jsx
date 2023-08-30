@@ -10,7 +10,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import fetchImagesAPI from './services/fetchImages-api';
 
 const App = () => {
-  const [apiImages, setApiImages] = useState(null);
+  const [apiImages, setApiImages] = useState([]);
   const [loading, setLoading] = useState(false);
   const [showModal, setShowModal] = useState(false);
   const [inputValue, setInputValue] = useState('');
@@ -28,7 +28,7 @@ const App = () => {
     fetchImagesAPI
       .fetchImages(inputValue, page)
       .then(response => {
-        setApiImages(response.hits);
+        setApiImages(prevApiImages => [...prevApiImages, ...response.hits]);
         setShowBtn(page < Math.ceil(response.totalHits / 12));
       })
       .catch(error => setError(error))
@@ -70,7 +70,7 @@ const App = () => {
       {apiImages && (
         <ImageGallery
           images={apiImages}
-          clickForShowModal={toggleModal}
+          onClick={toggleModal}
           onSelect={selectImage}
         />
       )}
