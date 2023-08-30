@@ -34,15 +34,17 @@ const App = () => {
       .catch(error => setError(error))
       .finally(() => setLoading(false));
   }, [inputValue, page]);
-  //  .then(response =>
-  //       this.setState(prevState => ({
-  //         apiImages: [...prevState.apiImages, ...response.hits],
-  //         showBtn: this.state.page < Math.ceil(response.totalHits / 12),
-  //       }))
-  //     )
 
   const formSubmit = inputValue => {
     setInputValue(inputValue);
+
+    setApiImages([]);
+    setLoading(false);
+    setShowModal(false);
+    setError(null);
+    setSelectedImage(null);
+    setPage(1);
+    setShowBtn(false);
   };
 
   const toggleModal = () => {
@@ -54,7 +56,7 @@ const App = () => {
   };
 
   const loadMore = () => {
-    setPage(page + 1);
+    setPage(prevPage => prevPage + 1);
   };
 
   return (
